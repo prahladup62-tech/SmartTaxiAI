@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Admin Reviews | Ananya Travel{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h2>Reviews</h2>
+    <p class="text-muted">Testimonials submitted by past customers.</p>
+  </div>
+  <a class="btn btn-outline-secondary" href="/admin/dashboard">Back to Dashboard</a>
+</div>
+<div class="row g-4">
+  {% for review in reviews %}
+    <div class="col-md-4">
+      <div class="card rounded-4 shadow-sm p-4 h-100">
+        <div class="d-flex align-items-center mb-3">
+          <div class="avatar bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center me-3">{{ review.user_name[0] }}</div>
+          <div>
+            <h5 class="mb-0">{{ review.user_name }}</h5>
+            <small class="text-muted">{{ review.created_at }}</small>
+          </div>
+        </div>
+        <p class="mb-3">{{ review.comment }}</p>
+        <div class="text-warning">{% for i in range(review.rating) %}★{% endfor %}</div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

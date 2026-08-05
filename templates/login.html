@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Login | Ananya Travel{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-6">
+    <div class="card rounded-4 shadow-sm border-0">
+      <div class="card-body p-5">
+        <h2 class="mb-4">Login</h2>
+        <form method="post" autocomplete="off">
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" required>
+          </div>
+          <div class="mb-4">
+            <label class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+        <div class="text-center mt-4">
+          <p class="mb-0">New to Ananya Travel? <a href="/register">Create an account</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

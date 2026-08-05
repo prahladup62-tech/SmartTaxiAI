@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Admin Dashboard | Ananya Travel{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h2>Admin Dashboard</h2>
+    <p class="text-muted">Monitor users, bookings, vehicle inventory and reviews.</p>
+  </div>
+  <a class="btn btn-outline-secondary" href="/admin/logout">Logout</a>
+</div>
+<div class="row g-4">
+  <div class="col-md-3">
+    <div class="admin-card p-4 rounded-4 shadow-sm">
+      <span class="admin-card-title">Users</span>
+      <h3>{{ stats.users }}</h3>
+      <a href="/admin/users">View users</a>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="admin-card p-4 rounded-4 shadow-sm">
+      <span class="admin-card-title">Bookings</span>
+      <h3>{{ stats.bookings }}</h3>
+      <a href="/admin/bookings">View bookings</a>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="admin-card p-4 rounded-4 shadow-sm">
+      <span class="admin-card-title">Cars</span>
+      <h3>{{ stats.cars }}</h3>
+      <a href="/admin/cars">View inventory</a>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="admin-card p-4 rounded-4 shadow-sm">
+      <span class="admin-card-title">Reviews</span>
+      <h3>{{ stats.reviews }}</h3>
+      <a href="/admin/reviews">View reviews</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Book a Cab | Ananya Travel{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card rounded-4 shadow-sm border-0 p-4">
+      <h2 class="mb-3">Book a Cab</h2>
+      <p class="text-muted">Choose your route, travel date and trip type. We'll confirm your booking immediately.</p>
+      <form method="post" id="bookingForm">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Trip Type</label>
+            <select name="trip_type" class="form-select" required>
+              <option value="">Select a trip type</option>
+              <option value="oneway">One-way</option>
+              <option value="round">Round trip</option>
+              <option value="rental">Rental</option>
+              <option value="self drive">Self drive</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Travel Date</label>
+            <input type="date" name="travel_date" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Pickup Location</label>
+            <input type="text" name="pickup" class="form-control" placeholder="Nashik" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Drop Location</label>
+            <input type="text" name="dropoff" class="form-control" placeholder="Mumbai" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg mt-4">Submit Booking</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

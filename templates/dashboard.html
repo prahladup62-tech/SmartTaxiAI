@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard | Ananya Travel{% endblock %}
+{% block content %}
+<div class="row gy-4">
+  <div class="col-lg-8">
+    <div class="card rounded-4 shadow-sm border-0 p-4">
+      <h2 class="mb-3">Welcome back, {{ user.name }}</h2>
+      <p class="text-muted">Manage your trips, view bookings and update your profile quickly.</p>
+      <div class="d-flex gap-2 flex-wrap mb-4">
+        <a class="btn btn-primary" href="/booking">New Booking</a>
+        <a class="btn btn-outline-secondary" href="/profile">Update Profile</a>
+      </div>
+      <h5>Recent Bookings</h5>
+      {% if bookings %}
+        <div class="list-group mt-3">
+          {% for booking in bookings %}
+            <div class="list-group-item rounded-4 mb-2 shadow-sm">
+              <div class="d-flex justify-content-between align-items-start flex-wrap">
+                <div>
+                  <h6 class="mb-1">{{ booking.trip_type | capitalize }} trip</h6>
+                  <small class="text-muted">{{ booking.pickup }} → {{ booking.dropoff }}</small>
+                </div>
+                <span class="badge bg-primary">{{ booking.travel_date }}</span>
+              </div>
+              <p class="mb-1 mt-2">Booked on {{ booking.created_at }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p class="text-muted">No bookings yet. Start a new ride to see your reservations here.</p>
+      {% endif %}
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card rounded-4 shadow-sm border-0 p-4">
+      <h5>Account details</h5>
+      <ul class="list-unstyled mt-3">
+        <li><strong>Name:</strong> {{ user.name }}</li>
+        <li><strong>Email:</strong> {{ user.email }}</li>
+      </ul>
+      <a class="btn btn-outline-primary mt-3" href="/profile">Edit Profile</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
