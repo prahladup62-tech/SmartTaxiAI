@@ -53,8 +53,7 @@ def init_db():
     conn.close()
 
 
-@app.before_first_request
-def startup():
+with app.app_context():
     init_db()
 
 
